@@ -12,8 +12,10 @@ Express with Nodemon
 Includes Babel, React Hot Loader, Image-webpack-loader, Sass Loader, Autoprefixer
 
 ### NPM Scripts
+`npm install` 
 |Script                          |Description                         |
 |--------------------------------|-------------------------------------|
+|`npm install`          		     |Install all dependencies   |
 |`npm start`            		     |Starts both server and client side   |
 |`npm run prod`            		   |Running Express in production mode	  |
 |`npm run build`				         |Build React client					          |
