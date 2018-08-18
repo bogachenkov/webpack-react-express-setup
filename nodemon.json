@@ -1,0 +1,3 @@
+{
+  "ignore": ["client/*", "dist/*", "node_,modules/*", "webpack.config.js", "postcss.config.js"]
+}

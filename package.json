@@ -1,0 +1,49 @@
+{
+  "name": "webpack-react-express-setup",
+  "version": "0.0.1",
+  "description": "Simple setup for React application with Express server.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "client": "webpack-dev-server --mode development",
+    "server": "nodemon server.js",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "prod": "NODE_ENV=production node server.js",
+    "build": "webpack --mode production --optimize-minimize"
+  },
+  "keywords": [],
+  "author": "Nikita Bogachenkov",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-hot-loader": "^4.3.4",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.1.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "image-webpack-loader": "^4.3.1",
+    "node-sass": "^4.9.3",
+    "nodemon": "^1.18.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
