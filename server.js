@@ -8,10 +8,9 @@ const PORT = process.env.PORT || 8080;
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
-app.use(cors());
 
 app.get('/user', (req, res) => {
   console.log('fetched');
@@ -19,7 +18,6 @@ app.get('/user', (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'production') {
-  // Set static folder
   app.use(express.static("public"));
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

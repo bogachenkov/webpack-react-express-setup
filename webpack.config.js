@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const isProd = process.env.NODE_ENV === 'production';
 const dirPath = 'public';
 
 module.exports = (env, argv) => ({
@@ -18,6 +17,7 @@ module.exports = (env, argv) => ({
     port: 3000,
     contentBase: path.join(__dirname, dirPath),
     publicPath: '/assets/',
+    historyApiFallback: true,
     open: true,
     hot: true,
     proxy: {
