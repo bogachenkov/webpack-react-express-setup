@@ -13,8 +13,7 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-app.get('/user', (req, res) => {
-  console.log('fetched');
+app.get('/api/user', (req, res) => {
   return res.json(os.userInfo());
 });
 

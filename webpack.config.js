@@ -4,7 +4,6 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const isProd = process.env.NODE_ENV === 'production';
 const dirPath = 'public';
 
 module.exports = (env, argv) => ({
@@ -14,18 +13,21 @@ module.exports = (env, argv) => ({
     filename: 'index.js',
     publicPath: '/assets/'
   },
+  devtool: 'source-map',
   devServer: {
     port: 3000,
     contentBase: path.join(__dirname, dirPath),
     publicPath: '/assets/',
+    historyApiFallback: true,
     open: true,
     hot: true,
     proxy: {
       '/api/**': {
-        target: 'http://[::1]:8080',
+        target: 'http://[::1]:8080/api/',
         pathRewrite: {
           '^/api' : ''
-        }
+        },
+        "changeOrigin": true
       }
     }
   },
@@ -35,6 +37,26 @@ module.exports = (env, argv) => ({
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader', options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'css-loader', options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'postcss-loader', options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       {
         test: /\.scss$/,
